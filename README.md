@@ -1,50 +1,58 @@
-# React + TypeScript + Vite
+# WebSocket Detection Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a WebSocket-based real-time detection system using a webcam feed and YOLOv8 for object detection. It uses a React frontend with TypeScript and a Python backend with FastAPI for real-time processing.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- WebSocket connection for real-time communication between frontend and backend.
+- Capture webcam feed in the frontend and send it to the backend for processing.
+- Use YOLOv8 model for object detection in real-time.
+- Display detection results with bounding boxes on the frontend.
+  
+## Technologies Used
 
-## Expanding the ESLint configuration
+- **Frontend**: React, TypeScript, WebSocket
+- **Backend**: Python, FastAPI, YOLOv8
+- **Model**: YOLOv8 (You Only Look Once)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+### Frontend Setup
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run the frontend:
+   ```bash
+   npm run dev
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Backend Setup
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/Bala-Vignesh-Reddy/websocket-demo.git
+   cd websocket-demo/backend  
+   ```
+2. Create a virtual environment:
+   ```bash
+   python -m venv env
+   ```
+3. Activate the virtual environment:
+   - On Windows:
+   ```bash
+   env\Scripts\activate
+   ```
+   - On macOS and Linux:
+   ```bash
+   source env/bin/activate
+   ```
+4. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. Run the FastAPI server:
+   ```bash
+   uvicorn app:app --reload
+   ```
